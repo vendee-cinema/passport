@@ -15,7 +15,7 @@ export function createPassportAsyncOptionsProvider(
 	return {
 		provide: PASSPORT_OPTIONS,
 		useFactory: async (...args: any[]) => {
-			const resolved = await options.useFactory(args)
+			const resolved = await options.useFactory(...args)
 			if (!resolved || typeof resolved.secretKey !== 'string')
 				throw new Error(
 					'[PassportModule] "secretKey" is required and must be a string'
